@@ -1,0 +1,12 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  release:
+    uses: VICENTE0777/proveedor-prueba/.github/workflows/test-build.yml@main
+    with:
+      push_image: true

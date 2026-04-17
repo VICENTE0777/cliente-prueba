@@ -1,0 +1,15 @@
+name: CI Validation
+
+on:
+  push:
+    branches:
+      - 'feature/**'
+      - 'dev'
+    tags-ignore:
+      - '*'
+
+jobs:
+  validate:
+    uses: VICENTE0777/proveedor-prueba/.github/workflows/test-build.yml@main
+    with:
+      push_image: false
