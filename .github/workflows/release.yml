@@ -10,3 +10,6 @@ jobs:
     uses: VICENTE0777/proveedor-prueba/.github/workflows/test-build.yml@main
     with:
       push_image: true
+    secrets:
+      DOCKER_USER: ${{ secrets.DOCKER_USER }}
+      DOCKER_PASS: ${{ secrets.DOCKER_PASS }}
