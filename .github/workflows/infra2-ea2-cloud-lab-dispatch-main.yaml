@@ -1,10 +1,23 @@
-name: Infraestructura Cloud II
-on:
-  workflow_dispatch:
-
 jobs:
   deploy:
-    uses: VICENTE0777/proveedor-prueba/.github/workflows/test-build.yml@main
-    with:
-      environment: "us-east-1"
-      project_name: "technova"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout cliente
+        uses: actions/checkout@v4
+
+      - name: Checkout proveedor
+        uses: actions/checkout@v4
+        with:
+          repository: VICENTE0777/proveedor-prueba
+          path: infra
+
+      - name: Configurar Terraform
+        uses: hashicorp/setup-terraform@v2
+        with:
+          terraform_version: 1.5.7
+
+      - name: Inicializar Terraform
+        run: terraform -chdir=infra init
+
+      - name: Aplicar infraestructura
+        run: terraform -chdir=infra apply -auto-approve
