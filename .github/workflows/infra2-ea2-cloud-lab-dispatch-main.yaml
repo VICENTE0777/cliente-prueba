@@ -1,3 +1,11 @@
+name: Infraestructura Cloud II
+
+on:
+  workflow_dispatch:   # ejecución manual desde Actions
+  push:
+    branches:
+      - main           # también se ejecuta en cada push a main
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -27,3 +35,6 @@ jobs:
 
       - name: Aplicar infraestructura
         run: terraform -chdir=infra apply -auto-approve
+
+      - name: Mostrar outputs de Terraform
+        run: terraform -chdir=infra output
