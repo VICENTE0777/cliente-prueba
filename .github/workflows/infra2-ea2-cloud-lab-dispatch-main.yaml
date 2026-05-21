@@ -1,10 +1,10 @@
 name: Infraestructura Cloud II
 
 on:
-  workflow_dispatch:   # ejecución manual desde Actions
+  workflow_dispatch:
   push:
     branches:
-      - main           # también se ejecuta en cada push a main
+      - main
 
 jobs:
   deploy:
