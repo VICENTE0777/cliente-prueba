@@ -1,3 +1,11 @@
+name: Infraestructura Cloud II
+
+on:
+  workflow_dispatch:   # 🔹 habilita el botón "Run workflow"
+  push:
+    branches:
+      - main
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -21,3 +29,4 @@ jobs:
 
       - name: Aplicar infraestructura
         run: terraform -chdir=infra apply -auto-approve
+
