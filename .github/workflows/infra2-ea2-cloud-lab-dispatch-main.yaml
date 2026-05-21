@@ -1,0 +1,10 @@
+name: Infraestructura Cloud II
+on:
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    uses: VICENTE0777/proveedor-prueba/.github/workflows/test-build.yml@main
+    with:
+      environment: "us-east-1"
+      project_name: "technova"
